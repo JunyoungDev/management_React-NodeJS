@@ -1,12 +1,53 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Customer from "./components/Customer";
+
+const customers = [
+    {
+    'id' : 1,
+    'image' :  'https://placeimg.com/64/64/any',
+    'name' : '홍길동',
+    'birthday' : '950221',
+    'gender' : '남자',
+    'job' : '대학생'
+  },
+  {
+    'id' : 2,
+    'image' :  'https://placeimg.com/64/64/any',
+    'name' : '기억잉',
+    'birthday' : '02222',
+    'gender' : '여자',
+    'job' : '대학생'
+  },
+  {
+    'id' : 3,
+    'image' :  'https://placeimg.com/64/64/any',
+    'name' : '호루링',
+    'birthday' : '995555',
+    'gender' : '남자',
+    'job' : '대학생'
+  }
+];
 
 function App() {
   return (
-    <div className="gary-background">
-      <img src={logo} alt="logo"/>
-      <h2>Let's get it</h2>
+    <div>
+      {
+      customers.map(c => {
+        return (
+          <Customer 
+            key={c.id}
+            id={c.id}
+            image={c.image}
+            name={c.name}
+            birthday={c.birthday}
+            gender={c.gender}
+            job={c.job}
+          />
+        );
+      })
+    }
     </div>
   );
 }
